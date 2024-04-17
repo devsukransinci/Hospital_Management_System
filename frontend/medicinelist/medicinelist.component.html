@@ -1,0 +1,58 @@
+
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark">
+        
+    <a style="color: white;" class="navbar-brand" href="#">Hastane Yönetim Sistemi</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+
+        <li class="nav-item">
+            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/docdash">Geri</a>
+          </li>
+          <li class="nav-item">
+            <a style="color: white;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/create-medicine">Reçete Ekle</a>
+          </li>
+        
+        
+      </ul>
+
+    </div>
+  
+  </nav>
+
+  <div class="container">
+    <hr>
+      <h2 style="text-align: center;margin-top: 20PX;">Reçete Listesi</h2>
+      <a style="color: rgb(86, 86, 86); font-size: x-large;"><marquee behavior="scroll" direction="left">
+          Reçete Listesine hoş geldiniz.Reçete listesini aşağıda bulabilirsiniz.Reçete görüntülemek
+           ve güncellemek için Reçete'ye tıklayın, yeni Reçete eklemek için Reçete Ekle'ye tıklayın.</marquee></a>
+    <hr>
+    
+    <br>
+      <a style="color: rgb(86, 86, 86); font-size: xx-large;">Reçete Listesi</a>
+
+<table class="table table-striped">
+    <thead class="table-header">
+        <tr>
+            <th>ID</th>
+            <th>İlaç Adı</th>
+            <th>Stok</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medicine of medicines"> 
+            <td> {{medicine.id}}</td>
+            <td> {{medicine.drugName}}</td>
+            <td> {{medicine.stock}}</td>
+           <td> 
+            <button type="submit" class="btn btn-success" (click)="update(medicine.id)">Güncelle</button>
+            <button type="submit" style="margin-left: 10px;" class="btn btn-danger" (click)="delete(medicine.id)">Sil</button>
+
+          </td>
+        </tr>
+    </tbody>
+</table>
